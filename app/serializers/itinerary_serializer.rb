@@ -1,5 +1,5 @@
 class ItinerarySerializer < ActiveModel::Serializer
-  attributes :id, :user_id, :description, :name, :things_to_do, :destinations
+  attributes :id, :user_id, :description, :name, :start_date, :end_date, :things_to_do, :destinations
 
   def destinations
     object.locations.map do |location|

@@ -44,5 +44,5 @@ end
 100.times do
   # byebug
   Stop.create(itinerary_id: (Itinerary.find(Random.rand(20)+1)).id,
-              location_id: (User.find(Random.rand(20)+1)).id)
+              location_id: (Location.find(Random.rand(200)+1)).id)
 end
