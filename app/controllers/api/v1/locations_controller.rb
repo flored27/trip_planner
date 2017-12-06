@@ -16,7 +16,7 @@ class Api::V1::LocationsController < ApplicationController
   def create
     @location = Location.new(location_params)
     if @location.save
-      render json: @location,status: :created, location: @location
+      render json: @location
     else
       render json: @location.errors, status: :unprocessable_entity
     end

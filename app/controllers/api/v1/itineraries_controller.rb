@@ -16,7 +16,7 @@ class Api::V1::ItinerariesController < ApplicationController
   def create
     @itinerary = Itinerary.new(itinerary_params)
     if @itinerary.save
-      render json: @itinerary,status: :created, location: @itinerary
+      render json: @itinerary, status: :created
     else
       render json: @itinerary.errors, status: :unprocessable_entity
     end
@@ -44,5 +44,5 @@ class Api::V1::ItinerariesController < ApplicationController
 
   def itinerary_params
     params.require(:itinerary).permit(:user_id, :name, :description, :notes, :start_date, :end_date, :avatar)
-  end 
+  end
 end
