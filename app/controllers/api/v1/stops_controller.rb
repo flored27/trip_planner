@@ -5,6 +5,11 @@ class Api::V1::StopsController < ApplicationController
       render json: @stops
   end
 
+  def show
+    @stop = Stop.find(params[:id])
+    render json: @stop
+  end
+
   def create
     @stop = Stop.new(stop_params)
       if @stop.save
@@ -14,10 +19,14 @@ class Api::V1::StopsController < ApplicationController
       end
   end
 
+  def destroy
+    @stop = Stop.find(params[:id])
+    @stop.destroy
+  end
 
   private
 
   def stop_params
-    params.require(:stop).permit(:location_id, :itinerary_id)
+    params.permit(:location_id, :itinerary_id)
   end
 end
